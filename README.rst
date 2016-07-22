@@ -1,4 +1,4 @@
-imzml2isa-qt
+nmrml2isa-qt
 ============
 
 A PyQt interface for nmrml2isa parser
@@ -9,7 +9,7 @@ Overview
 
 This program is a Graphical User Interface for the
 `nmrml2isa <https://github.com/althonos/nmrml2isa>`__ parser. It provides
-an easy-to-use interface to convert mzML files to an ISA-Tab Study. It
+an easy-to-use interface to convert nmrML files to an ISA-Tab Study. It
 was made with Python3 and PyQt5.
 
 Install
