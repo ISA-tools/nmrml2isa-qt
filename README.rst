@@ -71,8 +71,7 @@ be enhanced after the end of the parsing** (using for instance
 Creator <http://www.ebi.ac.uk/metabolights/>`__ to add missing fields).
 
 Missing information required for MetaboLights upload are at the moment:
-- Study Factors (sample dependent, must be added to the *study* file
-  and to the *investigation* file)
+- Study Factors (sample dependent, must be added to the *study* file and to the *investigation* file)
 - Metabolite Assignment Files
 - Study Designs
 
