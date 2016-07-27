@@ -284,7 +284,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "mzML to ISA-Tab"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "nmrML to ISA-Tab"))
         self.lbl_input.setText(_translate("MainWindow", "Input folder"))
         self.lbl_output.setText(_translate("MainWindow", "Output folder"))
         self.lbl_study.setText(_translate("MainWindow", "Study name"))

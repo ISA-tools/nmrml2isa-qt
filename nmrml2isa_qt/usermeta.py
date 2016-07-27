@@ -51,8 +51,9 @@ USERMETA = {'characteristics':           {'organism': {'name':'', 'accession':''
                                           'status': {'name':'', 'accession':'', 'ref':'PSO'},
                                          },
 
-            'description':               {'sample_collect':'', 'preparation':'', 'mass_spec':'',
-                                          'histology':'', 'data_trans':'', 'metabo_id':''
+            'description':               {'extraction':'', 'nmr_sample':'', 'nmr_spec':'',
+                                          'nmr_assay':'', 'data_trans':'', 'metabo_id':'',
+                                          'sample_collec':'',
                                          },
 
 
@@ -73,13 +74,10 @@ USERMETA = {'characteristics':           {'organism': {'name':'', 'accession':''
                                             },
                                          ],
 
-            'Sample mounting':           {'name':'', 'ref':'', 'accession':''},
-            'Sample preservation':       {'name':'', 'ref':'', 'accession':''},
-            'Sectioning instrument':     {'name':'', 'ref':'', 'accession':''},
-            'Section thickness':         {'value': '', 'unit':{'name':'', 'ref':'', 'accession':''}},
-
-            'Stain':     {'name':'', 'ref':'', 'accession':''},
-            'Spatial resolution':         {'value': '', 'unit':{'name':'', 'ref':'', 'accession':''}},
+            'Extraction Method':           {'name':'', 'ref':'', 'accession':''},
+            'Solvent':                     {'name':'', 'ref':'', 'accession':''},
+            'Sample pH':                   {'value':''},
+            'Label':                       {'name':'', 'ref':'', 'accession':''},
 
 }
 
@@ -121,19 +119,12 @@ class UserMetaDialog(QDialog):
         self.ui.rm_organism_variant.clicked.connect(lambda: self.rmCvTerm('organism_variant'))
 
         # Connect Material / Methods
-        self.ui.search_sample_mounting.clicked.connect(lambda: self.searchCvTerm('sample_mounting'))
-        self.ui.search_sample_preservation.clicked.connect(lambda: self.searchCvTerm('sample_preservation'))
-        self.ui.search_sectioning_instrument.clicked.connect(lambda: self.searchCvTerm('sectioning_instrument'))
-        self.ui.search_unit_section_thickness.clicked.connect(lambda: self.searchCvTerm('unit_section_thickness'))
-        self.ui.search_stain.clicked.connect(lambda: self.searchCvTerm('stain'))
-        self.ui.rm_sample_mounting.clicked.connect(lambda: self.rmCvTerm('sample_mounting'))
-        self.ui.rm_sample_preservation.clicked.connect(lambda: self.rmCvTerm('sample_preservation'))
-        self.ui.rm_sectioning_instrument.clicked.connect(lambda: self.rmCvTerm('sectioning_instrument'))
-        self.ui.rm_unit_section_thickness.clicked.connect(lambda: self.rmCvTerm('unit_section_thickness'))
-        self.ui.rm_stain.clicked.connect(lambda: self.rmCvTerm('stain'))
-
-        # Connect Unit combo box
-        self.ui.combo_unit_spatial_resolution.activated[str].connect(self.updateSpatialResUnit)
+        self.ui.search_extraction_method.clicked.connect(lambda: self.searchCvTerm('extraction_method'))
+        self.ui.search_solvent.clicked.connect(lambda: self.searchCvTerm('solvent'))
+        self.ui.search_label.clicked.connect(lambda: self.searchCvTerm('label'))
+        self.ui.rm_extraction_method.clicked.connect(lambda: self.rmCvTerm('extraction_method'))
+        self.ui.rm_solvent.clicked.connect(lambda: self.rmCvTerm('solvent'))
+        self.ui.rm_label.clicked.connect(lambda: self.rmCvTerm('label'))
 
         # Setup Contacts model / view
         self.ui.model_contacts = QStandardItemModel(0,11)
@@ -227,21 +218,11 @@ class UserMetaDialog(QDialog):
             getattr(self.ui, key + '_desc').setPlainText(value)
 
         ## MATERIAL/METHODS
-        ### Preparation
-        for key in ('Sample mounting', 'Sample preservation', 'Sectioning instrument', 'Stain'):
+        for key in ('Extraction Method', 'Label', 'Solvent'):
             for ontokey in ('name', 'accession', 'ref'):
                 getattr(self.ui, ontokey+'_'+key.lower().replace(' ', '_')).setText(self.metadata[key][ontokey])
+        self.ui.value_sample_pH.setText(self.metadata['Sample pH']['value'])
 
-        self.ui.value_section_thickness.setText(self.metadata['Section thickness']['value'])
-        for ontokey in ('name', 'accession', 'ref'):
-            getattr(self.ui, ontokey+'_unit_section_thickness').setText(self.metadata['Section thickness']['unit'][ontokey])
-
-        if self.metadata['Spatial resolution']['value']:
-            self.ui.value_spatial_resolution.setText(self.metadata['Spatial resolution']['value'])
-            unit = next(x for x,y in UNIT.items() if y[0] == self.metadata['Spatial resolution']['value'][0])
-            self.ui.combo_unit_spatial_resolution.setItemText(unit)
-            self.ui.ref_unit_spatial_resolution.setText(UNIT[unit][ref])
-            self.ui.accession_unit_spatial_resolution.setText(Unit[unit][accession])
 
     def getFields(self):
         """Get intel from dialog fields."""
@@ -292,17 +273,11 @@ class UserMetaDialog(QDialog):
             self.metadata['description'][key] = getattr(self.ui, key+'_desc').toPlainText()
 
         ## MATERIAL/METHODS
-        for key in ('Sample mounting', 'Sample preservation', 'Sectioning instrument', 'Stain'):
+        for key in ('Extraction Method', 'Label', 'Solvent'):
             for ontokey in ('name', 'accession', 'ref'):
                 self.metadata[key][ontokey] = getattr(self.ui, ontokey+'_'+key.lower().replace(' ', '_')).text()
+        self.metadata['Sample pH']['value'] = self.ui.value_sample_pH.text()
 
-        self.metadata['Section thickness']['value'] = self.ui.value_section_thickness.text()
-        for ontokey in ('name', 'accession', 'ref'):
-            self.metadata['Section thickness']['unit'][ontokey] = getattr(self.ui, ontokey+'_unit_section_thickness').text()
-
-        self.metadata['Spatial resolution']['value'] = self.ui.value_spatial_resolution.text()
-        if self.ui.value_spatial_resolution.text():
-            self.metadata['Spatial resolution']['unit'] = UNIT[self.ui.combo_unit_spatial_resolution.currentText()]
 
     def getContactFields(self, contact_type):
         """Unified method to get either Study contact or Investigation contact fields"""

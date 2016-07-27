@@ -44,7 +44,7 @@
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
    </property>
    <property name="usesScrollButtons">
     <bool>true</bool>
@@ -1272,20 +1272,23 @@ font-family: &quot;EBI-Functional&quot;;</string>
     <widget class="QTabWidget" name="tabWidget_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>17</x>
        <y>290</y>
-       <width>851</width>
+       <width>860</width>
        <height>211</height>
       </rect>
      </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="sample_collect">
+     <property name="usesScrollButtons">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="extraction">
       <attribute name="title">
-       <string>Sample collection</string>
+       <string>Extraction</string>
       </attribute>
-      <widget class="QPlainTextEdit" name="sample_collect_desc">
+      <widget class="QPlainTextEdit" name="extraction_desc">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1296,11 +1299,11 @@ font-family: &quot;EBI-Functional&quot;;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="preparation">
+     <widget class="QWidget" name="nmr_sample">
       <attribute name="title">
-       <string>Preparation</string>
+       <string>NMR Sample</string>
       </attribute>
-      <widget class="QPlainTextEdit" name="preparation_desc">
+      <widget class="QPlainTextEdit" name="nmr_sample_desc">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1311,11 +1314,11 @@ font-family: &quot;EBI-Functional&quot;;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="mass_spec">
+     <widget class="QWidget" name="nmr_spec">
       <attribute name="title">
-       <string>Mass spectrometry</string>
+       <string>NMR Spectroscopy</string>
       </attribute>
-      <widget class="QPlainTextEdit" name="mass_spec_desc">
+      <widget class="QPlainTextEdit" name="nmr_spec_desc">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1326,11 +1329,11 @@ font-family: &quot;EBI-Functional&quot;;</string>
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="histology">
+     <widget class="QWidget" name="nmr_assay">
       <attribute name="title">
-       <string>Histology</string>
+       <string>NMR Assay</string>
       </attribute>
-      <widget class="QPlainTextEdit" name="histology_desc">
+      <widget class="QPlainTextEdit" name="nmr_assay_desc">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1361,6 +1364,21 @@ font-family: &quot;EBI-Functional&quot;;</string>
        <string>Metabolite identification</string>
       </attribute>
       <widget class="QPlainTextEdit" name="metabo_id_desc">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>847</width>
+         <height>180</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="sample_collec">
+      <attribute name="title">
+       <string>Sample collection</string>
+      </attribute>
+      <widget class="QPlainTextEdit" name="sample_collec_desc">
        <property name="geometry">
         <rect>
          <x>0</x>
@@ -1780,7 +1798,7 @@ font-family: &quot;EBI-Functional&quot;;</string>
      <property name="geometry">
       <rect>
        <x>370</x>
-       <y>80</y>
+       <y>190</y>
        <width>64</width>
        <height>15</height>
       </rect>
@@ -1793,7 +1811,7 @@ font-family: &quot;EBI-Functional&quot;;</string>
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>50</y>
+       <y>160</y>
        <width>64</width>
        <height>25</height>
       </rect>
@@ -1805,27 +1823,27 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="ref_sample_mounting">
+    <widget class="QLineEdit" name="ref_solvent">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>75</y>
+       <y>185</y>
        <width>205</width>
        <height>25</height>
       </rect>
      </property>
      <property name="placeholderText">
-      <string>e.g. VTO</string>
+      <string>e.g. CHEBI</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="search_sample_mounting">
+    <widget class="QPushButton" name="search_solvent">
      <property name="geometry">
       <rect>
        <x>780</x>
-       <y>50</y>
+       <y>160</y>
        <width>40</width>
        <height>51</height>
       </rect>
@@ -1847,14 +1865,14 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <string>o</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="accession_sample_mounting">
+    <widget class="QLineEdit" name="accession_solvent">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
        <x>399</x>
-       <y>75</y>
+       <y>185</y>
        <width>371</width>
        <height>25</height>
       </rect>
@@ -1863,20 +1881,20 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <string/>
      </property>
      <property name="placeholderText">
-      <string>e.g. http://purl.obolibrary.org/obo/VTO_0011993</string>
+      <string>e.g. http://purl.obolibrary.org/obo/CHEBI_35702</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_48">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>50</y>
+       <y>160</y>
        <width>70</width>
        <height>55</height>
       </rect>
      </property>
      <property name="text">
-      <string>Sample mounting</string>
+      <string>Solvent</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1885,11 +1903,11 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="rm_sample_mounting">
+    <widget class="QPushButton" name="rm_solvent">
      <property name="geometry">
       <rect>
        <x>830</x>
-       <y>50</y>
+       <y>160</y>
        <width>40</width>
        <height>51</height>
       </rect>
@@ -1911,14 +1929,14 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <string>d</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="name_sample_mounting">
+    <widget class="QLineEdit" name="name_solvent">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>50</y>
+       <y>160</y>
        <width>610</width>
        <height>25</height>
       </rect>
@@ -1927,14 +1945,14 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <string/>
      </property>
      <property name="placeholderText">
-      <string>e.g. Homo sapiens</string>
+      <string>e.g. diethyl ether</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_69">
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>75</y>
+       <y>185</y>
        <width>64</width>
        <height>25</height>
       </rect>
@@ -1950,7 +1968,7 @@ font-family: &quot;EBI-Functional&quot;;</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>20</y>
+       <y>130</y>
        <width>261</width>
        <height>16</height>
       </rect>
@@ -1959,20 +1977,20 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <string notr="true">font: 12pt url(:/fonts/assets/fonts/Verdana.ttf);</string>
      </property>
      <property name="text">
-      <string>Preparation</string>
+      <string>Sample</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_53">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>115</y>
+       <y>225</y>
        <width>91</width>
        <height>55</height>
       </rect>
      </property>
      <property name="text">
-      <string>Sample preservation</string>
+      <string>Sample pH</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1981,85 +1999,65 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_71">
+    <widget class="QLabel" name="label_57">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>120</y>
-       <width>64</width>
-       <height>25</height>
+       <x>20</x>
+       <y>310</y>
+       <width>261</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt url(:/fonts/assets/fonts/Verdana.ttf);</string>
+     </property>
+     <property name="text">
+      <string>NMR</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_58">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>330</y>
+       <width>91</width>
+       <height>55</height>
       </rect>
      </property>
      <property name="text">
-      <string>Name:</string>
+      <string>Label</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLineEdit" name="ref_sample_preservation">
+    <widget class="QLineEdit" name="ref_label">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>140</y>
+       <y>355</y>
        <width>205</width>
        <height>25</height>
       </rect>
      </property>
      <property name="placeholderText">
-      <string>e.g. VTO</string>
+      <string>e.g. CHEBI</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_72">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>145</y>
-       <width>64</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>IRI:</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="search_sample_preservation">
-     <property name="geometry">
-      <rect>
-       <x>780</x>
-       <y>115</y>
-       <width>40</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>EBI-Conceptual</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 14pt &quot;:/fonts/assets/fonts/EBI-Conceptual.ttf&quot;;
-font-family: &quot;EBI-Conceptual&quot;;</string>
-     </property>
-     <property name="text">
-      <string>o</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="accession_sample_preservation">
+    <widget class="QLineEdit" name="accession_label">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
        <x>399</x>
-       <y>140</y>
+       <y>355</y>
        <width>371</width>
        <height>25</height>
       </rect>
@@ -2068,75 +2066,14 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <string/>
      </property>
      <property name="placeholderText">
-      <string>e.g. http://purl.obolibrary.org/obo/VTO_0011993</string>
+      <string>e.g. http://purl.obolibrary.org/obo/CHEBI_33608</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="rm_sample_preservation">
+    <widget class="QPushButton" name="rm_label">
      <property name="geometry">
       <rect>
        <x>830</x>
-       <y>115</y>
-       <width>40</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>EBI-Functional</family>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;:/fonts/assets/fonts/EBI-Functional.ttf&quot;;
-font-family: &quot;EBI-Functional&quot;;</string>
-     </property>
-     <property name="text">
-      <string>d</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="name_sample_preservation">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>115</y>
-       <width>610</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. Homo sapiens</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_73">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>140</y>
-       <width>64</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Ref:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="rm_sectioning_instrument">
-     <property name="geometry">
-      <rect>
-       <x>830</x>
-       <y>180</y>
+       <y>330</y>
        <width>40</width>
        <height>51</height>
       </rect>
@@ -2161,104 +2098,8 @@ font-family: &quot;EBI-Functional&quot;;</string>
     <widget class="QLabel" name="label_74">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>205</y>
-       <width>64</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Ref:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="search_sectioning_instrument">
-     <property name="geometry">
-      <rect>
-       <x>780</x>
-       <y>180</y>
-       <width>40</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>EBI-Conceptual</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 14pt &quot;:/fonts/assets/fonts/EBI-Conceptual.ttf&quot;;
-font-family: &quot;EBI-Conceptual&quot;;</string>
-     </property>
-     <property name="text">
-      <string>o</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="accession_sectioning_instrument">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>399</x>
-       <y>205</y>
-       <width>371</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. http://purl.obolibrary.org/obo/VTO_0011993</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="name_sectioning_instrument">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>180</y>
-       <width>610</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. Homo sapiens</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="ref_sectioning_instrument">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>205</y>
-       <width>205</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. VTO</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_75">
-     <property name="geometry">
-      <rect>
        <x>370</x>
-       <y>210</y>
+       <y>360</y>
        <width>64</width>
        <height>15</height>
       </rect>
@@ -2267,11 +2108,11 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <string>IRI:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_76">
+    <widget class="QLabel" name="label_75">
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>180</y>
+       <y>335</y>
        <width>64</width>
        <height>25</height>
       </rect>
@@ -2283,11 +2124,46 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="search_unit_section_thickness">
+    <widget class="QLabel" name="label_76">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>355</y>
+       <width>64</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ref:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="name_label">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>330</y>
+       <width>610</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>e.g. hydrogen molecular entity</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="search_label">
      <property name="geometry">
       <rect>
        <x>780</x>
-       <y>245</y>
+       <y>330</y>
        <width>40</width>
        <height>51</height>
       </rect>
@@ -2309,222 +2185,11 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <string>o</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_77">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>245</y>
-       <width>64</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Value:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="rm_unit_section_thickness">
-     <property name="geometry">
-      <rect>
-       <x>830</x>
-       <y>245</y>
-       <width>40</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>EBI-Functional</family>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt &quot;:/fonts/assets/fonts/EBI-Functional.ttf&quot;;
-font-family: &quot;EBI-Functional&quot;;</string>
-     </property>
-     <property name="text">
-      <string>d</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_78">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>275</y>
-       <width>64</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>IRI:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="accession_unit_section_thickness">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>399</x>
-       <y>270</y>
-       <width>371</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. http://purl.obolibrary.org/obo/VTO_0011993</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="ref_unit_section_thickness">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>270</y>
-       <width>205</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. VTO</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_79">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>270</y>
-       <width>64</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Ref:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="name_unit_section_thickness">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>399</x>
-       <y>245</y>
-       <width>371</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. Homo sapiens</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_80">
-     <property name="geometry">
-      <rect>
-       <x>335</x>
-       <y>245</y>
-       <width>64</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Unit:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="value_section_thickness">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>245</y>
-       <width>205</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. VTO</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_54">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>180</y>
-       <width>91</width>
-       <height>55</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sectioning Instrument</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_55">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>245</y>
-       <width>91</width>
-       <height>55</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Section thickness</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_56">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>310</y>
-       <width>261</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 12pt url(:/fonts/assets/fonts/Verdana.ttf);</string>
-     </property>
-     <property name="text">
-      <string>Imaging</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_57">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>410</y>
+       <y>20</y>
        <width>261</width>
        <height>16</height>
       </rect>
@@ -2533,52 +2198,39 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <string notr="true">font: 12pt url(:/fonts/assets/fonts/Verdana.ttf);</string>
      </property>
      <property name="text">
-      <string>Stain</string>
+      <string>Extraction</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_84">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>340</y>
-       <width>64</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Value:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="value_spatial_resolution">
+    <widget class="QLineEdit" name="accession_extraction_method">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>340</y>
-       <width>121</width>
+       <x>399</x>
+       <y>75</y>
+       <width>371</width>
        <height>25</height>
       </rect>
      </property>
+     <property name="text">
+      <string/>
+     </property>
      <property name="placeholderText">
-      <string>e.g. VTO</string>
+      <string>e.g. http://purl.obolibrary.org/obo/CHMO_0002524</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_58">
+    <widget class="QLabel" name="label_55">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>330</y>
-       <width>91</width>
-       <height>55</height>
+       <y>44</y>
+       <width>81</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="text">
-      <string>Spatial Resolution</string>
+      <string>Extraction method (1)</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2587,27 +2239,11 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="label_81">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>430</y>
-       <width>64</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Name:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="rm_stain">
+    <widget class="QPushButton" name="rm_extraction_method">
      <property name="geometry">
       <rect>
        <x>830</x>
-       <y>430</y>
+       <y>50</y>
        <width>40</width>
        <height>51</height>
       </rect>
@@ -2629,46 +2265,11 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <string>d</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="ref_stain">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>455</y>
-       <width>205</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. VTO</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="name_stain">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>430</y>
-       <width>610</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="placeholderText">
-      <string>e.g. Homo sapiens</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_82">
+    <widget class="QLabel" name="label_77">
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>455</y>
+       <y>75</y>
        <width>64</width>
        <height>25</height>
       </rect>
@@ -2680,11 +2281,11 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_83">
+    <widget class="QLabel" name="label_78">
      <property name="geometry">
       <rect>
        <x>370</x>
-       <y>460</y>
+       <y>80</y>
        <width>64</width>
        <height>15</height>
       </rect>
@@ -2693,11 +2294,11 @@ font-family: &quot;EBI-Functional&quot;;</string>
       <string>IRI:</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="search_stain">
+    <widget class="QPushButton" name="search_extraction_method">
      <property name="geometry">
       <rect>
        <x>780</x>
-       <y>430</y>
+       <y>50</y>
        <width>40</width>
        <height>51</height>
       </rect>
@@ -2719,15 +2320,47 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <string>o</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="accession_stain">
+    <widget class="QLineEdit" name="ref_extraction_method">
      <property name="enabled">
       <bool>true</bool>
      </property>
      <property name="geometry">
       <rect>
-       <x>399</x>
-       <y>455</y>
-       <width>371</width>
+       <x>160</x>
+       <y>75</y>
+       <width>205</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="placeholderText">
+      <string>e.g. CHMO</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_79">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>50</y>
+       <width>64</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Name:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="name_extraction_method">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>50</y>
+       <width>610</width>
        <height>25</height>
       </rect>
      </property>
@@ -2735,20 +2368,20 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <string/>
      </property>
      <property name="placeholderText">
-      <string>e.g. http://purl.obolibrary.org/obo/VTO_0011993</string>
+      <string>e.g. Dual-phase extraction</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_85">
+    <widget class="QLabel" name="label_56">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>430</y>
-       <width>91</width>
+       <x>10</x>
+       <y>460</y>
+       <width>311</width>
        <height>55</height>
       </rect>
      </property>
      <property name="text">
-      <string>Stain</string>
+      <string>(1): If no extraction method was used, put N/A in the Name field instead of leaving it blank.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2757,88 +2390,30 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QComboBox" name="combo_unit_spatial_resolution">
+    <widget class="QLineEdit" name="value_sample_pH">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>340</y>
-       <width>75</width>
+       <x>160</x>
+       <y>240</y>
+       <width>201</width>
        <height>25</height>
       </rect>
      </property>
-     <property name="currentIndex">
-      <number>-1</number>
-     </property>
-     <item>
-      <property name="text">
-       <string>mm</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>µm</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>nm</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>pm</string>
-      </property>
-     </item>
     </widget>
-    <widget class="QLabel" name="label_86">
+    <widget class="QLabel" name="label_71">
      <property name="geometry">
       <rect>
-       <x>371</x>
-       <y>345</y>
+       <x>90</x>
+       <y>240</y>
        <width>64</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>IRI:</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="accession_unit_spatial_resolution">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>340</y>
-       <width>371</width>
        <height>25</height>
       </rect>
      </property>
      <property name="text">
-      <string/>
+      <string>Value:</string>
      </property>
-     <property name="placeholderText">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="ref_unit_spatial_resolution">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>780</x>
-       <y>340</y>
-       <width>91</width>
-       <height>25</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-     <property name="placeholderText">
-      <string/>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
    </widget>
@@ -2933,9 +2508,9 @@ font-family: &quot;EBI-Conceptual&quot;;</string>
   <tabstop>accession_organism_part</tabstop>
   <tabstop>search_organism_part</tabstop>
   <tabstop>rm_organism_part</tabstop>
-  <tabstop>sample_collect_desc</tabstop>
-  <tabstop>preparation_desc</tabstop>
-  <tabstop>mass_spec_desc</tabstop>
+  <tabstop>extraction_desc</tabstop>
+  <tabstop>nmr_sample_desc</tabstop>
+  <tabstop>nmr_spec_desc</tabstop>
   <tabstop>data_trans_desc</tabstop>
   <tabstop>metabo_id_desc</tabstop>
   <tabstop>tabWidget</tabstop>
