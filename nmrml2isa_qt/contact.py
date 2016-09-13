@@ -5,7 +5,7 @@ import sys
 import os
 import json
 from copy import deepcopy
-from collections import OrderedDict
+from collections import OrderedDict, Mapping
 
 ## FRONTEND
 from PyQt5.QtWidgets import *
@@ -28,7 +28,7 @@ CONTACT = OrderedDict([
 			('first_name', ''), ('mid', ''), ('last_name',''),
 			('phone',''), ('email',''), ('fax',''), ('affiliation',''),
 			('adress',''),
-			('roles',{'accession':'', 'ref':'', 'value':''}),
+			('roles',{'accession':'', 'ref':'', 'name':''}),
 		  ])
 
 
@@ -39,7 +39,7 @@ def dict_update(d, u):
     And updated to work with dictionaries nested in lists.
     """
     for k, v in u.items():
-        if isinstance(v, collections.Mapping):
+        if isinstance(v, Mapping):
             r = dict_update(d.get(k, {}), v)
             d[k] = r
         elif isinstance(v, list):

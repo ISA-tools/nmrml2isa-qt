@@ -322,7 +322,7 @@ class UserMetaDialog(QDialog):
 
     def editContact(self, contact_type):
         indexes = getattr(self.ui, 'table_contacts'+SUFFIX[contact_type]).selectionModel().selection().indexes()
-        if indexes is not None:
+        if indexes is not None and indexes:
             model = getattr(self.ui, 'model_contacts' + SUFFIX[contact_type])
 
             row_index = indexes[0].row()
@@ -340,6 +340,7 @@ class UserMetaDialog(QDialog):
     def fillContacts(self, contacts, contact_type):
         model = getattr(self.ui, 'model_contacts' + SUFFIX[contact_type])
         for contact in contacts:
+            print(contact)
             if contact != CONTACT:
                 model.appendRow(
                     [QStandardItem(contact[key]) for key in CONTACT.keys() if key != 'roles'] \

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'qt/usermeta.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -791,7 +791,7 @@ class Ui_Dialog(object):
         self.buttonBox.setObjectName("buttonBox")
 
         self.retranslateUi(Dialog)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
         self.combo_status_2.setCurrentIndex(-1)
         self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
