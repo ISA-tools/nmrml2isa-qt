@@ -98,7 +98,7 @@ class ContactDialog(QDialog):
             self.ui.combo_roles.addItem("")
             self.ui.combo_roles.setItemText(i, _translate("Dialog", status))
         # Check if value to display
-        if self.contact['roles']['value']:
+        if self.contact['roles']['name']:
             self.ui.combo_roles.setCurrentText(self.contact['roles']['name'])
             self.ui.roles.setText(self.contact['roles']['accession'])
         else:

@@ -340,7 +340,6 @@ class UserMetaDialog(QDialog):
     def fillContacts(self, contacts, contact_type):
         model = getattr(self.ui, 'model_contacts' + SUFFIX[contact_type])
         for contact in contacts:
-            print(contact)
             if contact != CONTACT:
                 model.appendRow(
                     [QStandardItem(contact[key]) for key in CONTACT.keys() if key != 'roles'] \
