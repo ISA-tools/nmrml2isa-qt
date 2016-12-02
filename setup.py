@@ -27,7 +27,7 @@ setup(
     description="A PyQt interface for nmrml2isa parser.",
     long_description=open('README.rst').read(),
 
-    install_requires=["PyQt5", "nmrml2isa",],
+    install_requires=open('requirements.txt').read().splitlines(),
 
     include_package_data=True,
 
