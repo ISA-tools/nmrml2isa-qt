@@ -22,7 +22,7 @@ install:
 
 
 build_script:
-  - cd nmrml2isa-qt
+  - cd nmrml2isa_qt
   - pyinstaller main.spec
 
 artifacts:
